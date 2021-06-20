@@ -1,0 +1,21 @@
+@import "src/assets/styles/variables";
+
+.box {
+  border: 1px solid $red;
+  padding: 5px;
+  margin: 5px;
+
+  &_theme {
+    &_red {
+      border: 1px solid $red;
+    }
+
+    &_blue {
+      border: 1px solid $blue;
+    }
+
+    &_green {
+      border: 1px solid $green
+    }
+  }
+}

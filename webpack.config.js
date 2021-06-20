@@ -11,16 +11,25 @@ module.exports = {
             {
                 test: /\.(ts|tsx)$/,
                 use: 'ts-loader',
+                exclude: /node_modules/,
             },
             {
                 test: /\.scss$/,
                 use: [
                     'style-loader',
                     'css-loader',
-                    'scss-loader',
+                    'sass-loader',
                 ]
             },
         ]
+    },
+    resolve: {
+        extensions: ['.tsx', '.ts', '.js'],
+        alias: {
+            modules: path.join(__dirname, 'src', 'modules'),
+            components: path.join(__dirname, 'src', 'components'),
+            containers: path.join(__dirname, 'src', 'containers'),
+        }
     },
     plugins: [
         new HtmlWebpackPlugin({

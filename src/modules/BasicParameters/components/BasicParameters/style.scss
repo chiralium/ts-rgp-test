@@ -1,0 +1,22 @@
+.basic-parameters {
+  &__fieldset {
+    display: flex;
+  }
+
+  &__label {
+    text-transform: uppercase;
+    color: red;
+  }
+
+  &__input {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: grey;
+
+    &:focus {
+      outline: 1px solid red;
+    }
+  }
+}

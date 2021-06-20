@@ -1,0 +1,23 @@
+@import "src/assets/styles/variables";
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  color: $green;
+  font-family: monospace;
+}
+
+.app {
+
+  &__title {
+    width: 100%;
+    text-align: center;
+  }
+
+  &__layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+}
