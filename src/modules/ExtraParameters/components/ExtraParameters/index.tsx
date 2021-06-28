@@ -1,31 +1,39 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import {Box} from "containers/Box";
 import {Skills} from "components/Skills";
-import {livingPower, energy, evasion} from "components/ExtraParameters/helper";
+import {livingPower, energy, evasion} from "modules/ExtraParameters/helpers";
 
 
 import block from 'bem-cn';
 import './style.scss'
-import {useSelector} from "react-redux";
-import {selectCharisma, selectDexterity, selectIQ, selectName, selectPower} from "modules/BasicParameters/selectors";
+import {useDispatch, useSelector} from "react-redux";
+import {selectDexterity, selectIQ, selectPower} from "modules/BasicParameters/selectors";
+import {setEnergyActions, setEvasionAction, setLivingPowerAction} from "modules/ExtraParameters/actions";
 
 const b = block('extra-parameters');
 
 const ExtraParameters = (): JSX.Element => {
+    const dispatch = useDispatch();
+
     const [
-        playerName,
         playerPower,
         playerIQ,
         playerDexterity,
-        playerCharisma,
     ] = [
-        useSelector(selectName),
         useSelector(selectPower),
         useSelector(selectIQ),
         useSelector(selectDexterity),
-        useSelector(selectCharisma),
     ];
+
+    useEffect(() => {
+        dispatch(setLivingPowerAction(livingPower(playerPower)));
+    }, [playerPower]);
+
+    useEffect(() => {
+        dispatch(setEvasionAction(evasion(playerDexterity)));
+        dispatch(setEnergyActions(energy(playerDexterity, playerIQ)));
+    }, [playerIQ, playerDexterity]);
 
     return (
         <div className={b()}>

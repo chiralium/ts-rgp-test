@@ -1,7 +1,7 @@
 import React from "react";
 import {Box} from 'containers/Box';
 import {BasicParameters} from 'modules/BasicParameters/components/BasicParameters';
-import {ExtraParameters} from 'components/ExtraParameters';
+import {ExtraParameters} from 'modules/ExtraParameters/components/ExtraParameters';
 
 import './style.scss';
 import block from "bem-cn";

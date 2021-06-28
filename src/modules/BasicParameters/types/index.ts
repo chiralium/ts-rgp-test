@@ -1,3 +1,5 @@
+export const BASIC_PARAMETERS_MODULE = 'BASIC_PARAMETERS_MODULE';
+
 export const BASIC_PARAMETERS_ACTION_TYPES = {
     BP_SET_NAME: 'BP_SET_NAME',
     BP_SET_POWER: 'BP_SET_POWER',
@@ -13,13 +15,9 @@ export const BASIC_PARAMETERS_LIST = {
     CHARISMA: 'charisma',
 }
 
-export const BASIC_PARAMETERS_MODULE = 'BASIC_PARAMETERS_MODULE';
-
-type TBPSetNameAction<K> = K;
-
 export type TBPAction<K> = {
     type: string,
-    payload: TBPSetNameAction<K>,
+    payload: K,
 }
 
 export type TBPState = {
