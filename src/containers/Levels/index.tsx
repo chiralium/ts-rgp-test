@@ -21,6 +21,10 @@ const Levels = (props: TProps): JSX.Element => {
     const renderLevelBlocks = ({maxLevel, mapLevel}: TProps): Array<JSX.Element> => {
         const levelList = [];
 
+        if (maxLevel < 0) {
+            maxLevel = 0;
+        }
+
         for (let i: number = 0; i < mapLevel.length; i++) {
             levelList.push(
                 <li className={b('item', {theme: mapLevel[i].color, success: i <= maxLevel})}>
