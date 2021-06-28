@@ -1,36 +1,3 @@
-const SKILLS_MAP = [
-    {
-        name: 'Нетренированный',
-        level: 0,
-        color: 'red',
-    },
-    {
-        name: 'Новичок',
-        level: 1,
-        color: 'green',
-    },
-    {
-        name: 'Ученик',
-        level: 2,
-        color: 'blue',
-    },
-    {
-        name: 'Адепт',
-        level: 3,
-        color: 'yellow',
-    },
-    {
-        name: 'Эксперт',
-        level: 4,
-        color: 'purple',
-    },
-    {
-        name: 'Мастер',
-        level: 5,
-        color: 'gold',
-    },
-];
-
 type TBasicParameters = {
     power: number,
     dexterity: number,
@@ -96,14 +63,42 @@ class Player implements IPlayer {
     }
 
     public getSkill(skillName: string): TSkill | null {
-        if (this.skills.hasOwnProperty(skillName)) {
-            return this.skills.find((skill: TSkill): TSkill | boolean => {
-                return skill.name === skillName;
-            }) || null;
-        }
-
-        return null;
+        return this.skills.find((skill: TSkill) => {
+            return skill.name === skillName;
+        }) || null;
     }
 }
 
+const SKILLS_MAP = [
+    {
+        name: 'Нетренированный',
+        level: 0,
+        color: 'red',
+    },
+    {
+        name: 'Новичок',
+        level: 1,
+        color: 'green',
+    },
+    {
+        name: 'Ученик',
+        level: 2,
+        color: 'blue',
+    },
+    {
+        name: 'Адепт',
+        level: 3,
+        color: 'yellow',
+    },
+    {
+        name: 'Эксперт',
+        level: 4,
+        color: 'purple',
+    },
+    {
+        name: 'Мастер',
+        level: 5,
+        color: 'gold',
+    },
+];
 export {SKILLS_MAP, Player};
