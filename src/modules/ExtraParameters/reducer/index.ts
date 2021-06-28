@@ -34,4 +34,4 @@ const EXReducer = (state: TEXState = initialState, action: TEXSetAction) => {
     }
 }
 
-export {EXReducer};
+export default EXReducer;

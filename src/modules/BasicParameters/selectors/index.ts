@@ -1,7 +1,8 @@
 import {BASIC_PARAMETERS_MODULE} from "modules/BasicParameters/types";
 import {rootReducer} from "modules/App/reducer";
+import BPReducer from 'modules/BasicParameters/reducer';
 
-const selectModule = (state: ReturnType<typeof rootReducer>) => {
+const selectModule = (state: ReturnType<typeof rootReducer>): ReturnType<typeof BPReducer> => {
     return state[BASIC_PARAMETERS_MODULE];
 }
 

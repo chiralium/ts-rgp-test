@@ -10,6 +10,7 @@ import './style.scss'
 import {useDispatch, useSelector} from "react-redux";
 import {selectDexterity, selectIQ, selectPower} from "modules/BasicParameters/selectors";
 import {setEnergyActions, setEvasionAction, setLivingPowerAction} from "modules/ExtraParameters/actions";
+import {selectEnergy, selectEvasion, selectLivingPower} from "modules/ExtraParameters/selectors";
 
 const b = block('extra-parameters');
 
@@ -26,6 +27,16 @@ const ExtraParameters = (): JSX.Element => {
         useSelector(selectDexterity),
     ];
 
+    const [
+        playerLivingPower,
+        playerEvasion,
+        playerEnergy,
+    ] = [
+        useSelector(selectLivingPower),
+        useSelector(selectEvasion),
+        useSelector(selectEnergy),
+    ];
+
     useEffect(() => {
         dispatch(setLivingPowerAction(livingPower(playerPower)));
     }, [playerPower]);
@@ -40,17 +51,17 @@ const ExtraParameters = (): JSX.Element => {
             <div className={b('items')}>
                 <Box theme="blue" name="Жизненная сила">
                     <div className={b('indicator')}>
-                        {livingPower(playerPower)}
+                        {playerLivingPower}
                     </div>
                 </Box>
                 <Box theme="blue" name="Уклонение">
                     <div className={b('indicator')}>
-                        {evasion(playerDexterity)}
+                        {playerEvasion}
                     </div>
                 </Box>
                 <Box theme="blue" name="Энергичность">
                     <div className={b('indicator')}>
-                        {energy(playerDexterity, playerIQ)}
+                        {playerEnergy}
                     </div>
                 </Box>
             </div>
