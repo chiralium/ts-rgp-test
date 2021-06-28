@@ -13,9 +13,27 @@ import './style.scss';
 import block from 'bem-cn';
 import {useDispatch, useSelector} from "react-redux";
 import {selectCharisma, selectDexterity, selectIQ, selectName, selectPower} from "modules/BasicParameters/selectors";
+import {selectLivingPower} from "modules/ExtraParameters/selectors";
+import {setLivingPowerAction} from "modules/ExtraParameters/actions";
 const b = block('basic-parameters');
 
 const BasicParameters = () => {
+    const [
+        playerName,
+        playerPower,
+        playerIQ,
+        playerDexterity,
+        playerCharisma,
+    ] = [
+        useSelector(selectName),
+        useSelector(selectPower),
+        useSelector(selectIQ),
+        useSelector(selectDexterity),
+        useSelector(selectCharisma),
+    ];
+
+    const playerLivingPower = useSelector(selectLivingPower);
+
     const dispatch = useDispatch();
 
     const handleOnChangeName = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -56,19 +74,9 @@ const BasicParameters = () => {
         }
     }
 
-    const [
-        playerName,
-        playerPower,
-        playerIQ,
-        playerDexterity,
-        playerCharisma,
-    ] = [
-        useSelector(selectName),
-        useSelector(selectPower),
-        useSelector(selectIQ),
-        useSelector(selectDexterity),
-        useSelector(selectCharisma),
-    ];
+    const handleMakeDamage = (): void => {
+        dispatch(setLivingPowerAction(playerLivingPower - 1));
+    }
 
     return (
         <div className={b()}>
@@ -120,7 +128,7 @@ const BasicParameters = () => {
 
             <Box theme="red" name="Получить урон!">
                 <div className={b('get-damage')}>
-                    <button type="button" className={b('get-damage-btn')}>
+                    <button type="button" className={b('get-damage-btn')} onClick={handleMakeDamage}>
                         Получить урон
                     </button>
                 </div>
