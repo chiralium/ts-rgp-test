@@ -5,6 +5,11 @@
   padding: 5px;
   margin: 8px;
 
+  &__sticky-trick {
+    position: absolute;
+    display: none;
+  }
+
   &__name {
     font-size: initial;
     position: relative;

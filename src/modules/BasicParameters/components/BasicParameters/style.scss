@@ -1,4 +1,24 @@
 .basic-parameters {
+  position: sticky;
+  top: 15px;
+
+  &__get-damage {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__get-damage-btn {
+    padding: 3rem;
+    background-color: crimson;
+    border: none;
+    text-transform: uppercase;
+    color: black;
+    font-weight: bold;
+    outline: none;
+  }
+
   &__fieldset {
     display: flex;
   }

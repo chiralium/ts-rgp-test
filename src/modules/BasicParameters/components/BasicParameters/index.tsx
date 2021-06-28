@@ -117,6 +117,14 @@ const BasicParameters = () => {
                         value={playerCharisma} />
                 </Box>
             </div>
+
+            <Box theme="red" name="Получить урон!">
+                <div className={b('get-damage')}>
+                    <button type="button" className={b('get-damage-btn')}>
+                        Получить урон
+                    </button>
+                </div>
+            </Box>
         </div>
     )
 };

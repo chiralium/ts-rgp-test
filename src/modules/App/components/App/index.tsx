@@ -21,7 +21,7 @@ const App = (): JSX.Element  => {
             </Box>
             <Box theme="red">
                 <div className={b('layout')}>
-                    <Box theme="green" name="Базовые параметры">
+                    <Box theme="green" name="Базовые параметры" stickyTrick>
                         <BasicParameters/>
                     </Box>
                     <Box theme="green" name="Дополнительные параметры">
