@@ -12,11 +12,20 @@
     width: 100%;
     margin: 0;
     padding: 0;
-    border: none;
-    background-color: grey;
+    border: 1px solid yellow;
+    background-color: black;
+    color: green;
+    font-style: italic;
+    font-size: 28px;
+    font-weight: bold;
 
     &:focus {
-      outline: 1px solid red;
+      outline: none;
+      border: 1px solid darkorange;
     }
+  }
+
+  &__numeric {
+    display: flex;
   }
 }

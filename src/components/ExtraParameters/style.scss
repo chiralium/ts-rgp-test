@@ -1,0 +1,20 @@
+.extra-parameters {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__indicator {
+    font-size: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 100%;
+  }
+}

@@ -1,6 +1,7 @@
 import React from "react";
 import {Box} from 'containers/Box';
 import {BasicParameters} from 'modules/BasicParameters/components/BasicParameters';
+import {ExtraParameters} from 'components/ExtraParameters';
 
 import './style.scss';
 import block from "bem-cn";
@@ -14,17 +15,17 @@ const App = (): JSX.Element  => {
     return (
         <div className={b()}>
             <Box theme="blue">
-                <div className={b('title')}>
+                <h1 className={b('title')}>
                     {`RPG - ${playerName}`}
-                </div>
+                </h1>
             </Box>
             <Box theme="red">
                 <div className={b('layout')}>
-                    <Box theme="green">
+                    <Box theme="green" name="Базовые параметры">
                         <BasicParameters/>
                     </Box>
-                    <Box theme="green">
-                        <div>Skills</div>
+                    <Box theme="green" name="Дополнительные параметры">
+                        <ExtraParameters/>
                     </Box>
                 </div>
             </Box>

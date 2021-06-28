@@ -19,18 +19,29 @@ const BasicParameters = () => {
     const playerName = useSelector(selectName);
 
     return (
-        <Box theme="green">
-            <div className={b()}>
-                <div className={b('fieldset')}>
-                    <div className={b('label')}>Name: </div>
-                    <input className={b('input')}
-                           name="name"
-                           onChange={handleOnChangeName}
-                           value={playerName}
-                           type="text"/>
-                </div>
+        <div className={b()}>
+            <Box theme="blue" name="Имя">
+                <input className={b('input')}
+                       name="name"
+                       onChange={handleOnChangeName}
+                       value={playerName}
+                       type="text"/>
+            </Box>
+            <div className={b('numeric')}>
+                <Box theme="blue" name="Сила">
+                    <input className={b('input')} type="number" min="0" value="0" />
+                </Box>
+                <Box theme="blue" name="Ловкость">
+                    <input className={b('input')} type="number" min="0" value="0" />
+                </Box>
+                <Box theme="blue" name="Интеллект">
+                    <input className={b('input')} type="number" min="0" value="0" />
+                </Box>
+                <Box theme="blue" name="Харизма">
+                    <input className={b('input')} type="number" min="0" value="0" />
+                </Box>
             </div>
-        </Box>
+        </div>
     )
 };
 

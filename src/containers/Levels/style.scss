@@ -1,0 +1,67 @@
+.levels {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &__wrapper {
+    display: block;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: black;
+    text-transform: uppercase;
+    text-decoration: line-through;
+    width: 110px;
+    height: 40px;
+    filter: grayscale(1);
+    margin: 2px;
+
+    &_theme {
+      &_red {
+        background-color: red;
+      }
+
+      &_green {
+        background-color: green;
+      }
+
+      &_blue {
+        background-color: blue;
+      }
+
+      &_yellow {
+        background-color: yellow;
+      }
+
+      &_purple {
+        background-color: purple;
+      }
+
+      &_gold {
+        background-color: olive;
+      }
+    }
+
+    &_success {
+      filter: none;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  }
+
+  &__number {
+    font-size: 1.5rem;
+  }
+
+  &__name {
+    font-size: 10px;
+  }
+}

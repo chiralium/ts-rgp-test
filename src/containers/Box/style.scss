@@ -3,7 +3,16 @@
 .box {
   border: 1px solid $red;
   padding: 5px;
-  margin: 5px;
+  margin: 8px;
+
+  &__name {
+    font-size: initial;
+    position: relative;
+    top: -13px;
+    background-color: black;
+    width: auto;
+    display: inline;
+  }
 
   &_theme {
     &_red {
