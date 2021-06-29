@@ -1,0 +1,10 @@
+@import "src/assets/styles/mixins";
+
+.load-modal {
+  @include modalMX(240px);
+
+  &__file {
+    border: none;
+    padding: 5px;
+  }
+}

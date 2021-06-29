@@ -2,6 +2,26 @@
   position: sticky;
   top: 15px;
 
+  &__game-control {
+    padding: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  &__btn {
+    padding: 5px;
+    border: none;
+
+    &_save {
+      background-color: cadetblue;
+    }
+
+    &_load {
+      background-color: cornflowerblue;
+    }
+  }
+
   &__get-damage {
     display: flex;
     width: 100%;

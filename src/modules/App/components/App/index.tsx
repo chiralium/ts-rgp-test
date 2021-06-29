@@ -4,10 +4,10 @@ import {BasicParameters} from 'modules/BasicParameters/components/BasicParameter
 import {ExtraParameters} from 'modules/ExtraParameters/components/ExtraParameters';
 
 import './style.scss';
-import block from "bem-cn";
+import block, {Block} from "bem-cn";
 import {useSelector} from "react-redux";
 import {selectName} from "modules/BasicParameters/selectors";
-const b = block('app');
+const b: Block = block('app');
 
 const App = (): JSX.Element  => {
     const playerName = useSelector(selectName);

@@ -1,15 +1,15 @@
 import React from 'react';
-import block from 'bem-cn';
-import {Player, SKILLS_MAP} from "components/Skills/types";
+import block, {Block} from 'bem-cn';
+import {Skills, SKILLS_MAP} from "components/Skills/types";
 import {Box} from "containers/Box";
 import './style.scss';
 import {Levels} from "containers/Levels";
 import {useSelector} from "react-redux";
 import {selectCharisma, selectDexterity, selectIQ, selectPower} from "modules/BasicParameters/selectors";
 
-const b = block('skills');
+const b: Block = block('skills');
 
-const Skills = (): JSX.Element => {
+const SkillsTable = (): JSX.Element => {
     const [
         playerPower,
         playerIQ,
@@ -22,7 +22,7 @@ const Skills = (): JSX.Element => {
         useSelector(selectCharisma),
     ];
 
-    const player = new Player({
+    const player = new Skills({
         power: playerPower,
         iq: playerIQ,
         dexterity: playerDexterity,
@@ -49,4 +49,4 @@ const Skills = (): JSX.Element => {
     )
 }
 
-export {Skills};
+export {SkillsTable};

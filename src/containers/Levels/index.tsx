@@ -1,8 +1,8 @@
 import React from 'react';
-import block from "bem-cn";
+import block, {Block} from "bem-cn";
 import './style.scss';
 
-const b = block('levels');
+const b: Block = block('levels');
 
 type TMap = {
     color: string,

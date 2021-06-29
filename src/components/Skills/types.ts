@@ -10,11 +10,11 @@ type TSkill = {
     level: number,
 }
 
-interface IPlayer {
+interface ISkills {
     skills: Array<TSkill>,
 }
 
-class Player implements IPlayer {
+class Skills implements ISkills {
     skills: Array<TSkill>;
 
     constructor(basicParameters: TBasicParameters) {
@@ -101,4 +101,4 @@ const SKILLS_MAP = [
         color: 'gold',
     },
 ];
-export {SKILLS_MAP, Player};
+export {SKILLS_MAP, Skills};

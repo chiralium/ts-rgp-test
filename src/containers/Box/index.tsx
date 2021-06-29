@@ -1,8 +1,8 @@
 import React from 'react';
 
 import './style.scss';
-import block from 'bem-cn';
-const b = block('box');
+import block, {Block} from 'bem-cn';
+const b: Block = block('box');
 
 
 type TProps = {

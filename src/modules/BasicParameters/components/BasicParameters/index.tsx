@@ -10,12 +10,15 @@ import {
 import {BASIC_PARAMETERS_LIST} from "modules/BasicParameters/types";
 
 import './style.scss';
-import block from 'bem-cn';
+import block, {Block} from 'bem-cn';
 import {useDispatch, useSelector} from "react-redux";
 import {selectCharisma, selectDexterity, selectIQ, selectName, selectPower} from "modules/BasicParameters/selectors";
 import {selectLivingPower} from "modules/ExtraParameters/selectors";
 import {setLivingPowerAction} from "modules/ExtraParameters/actions";
-const b = block('basic-parameters');
+import {showModalAction} from "modules/Modal/actions";
+import {SaveModal, MODAL_SAVE_GAME} from "components/SaveModal";
+import {LoadModal, MODAL_LOAD_GAME} from "components/LoadModal";
+const b: Block = block('basic-parameters');
 
 const BasicParameters = () => {
     const [
@@ -78,6 +81,14 @@ const BasicParameters = () => {
         dispatch(setLivingPowerAction(playerLivingPower - 1));
     }
 
+    const handleSaveModal = () => {
+        dispatch(showModalAction(MODAL_SAVE_GAME));
+    }
+
+    const handleLoadModal = () => {
+        dispatch(showModalAction(MODAL_LOAD_GAME));
+    }
+
     return (
         <div className={b()}>
             <Box theme="blue" name="Имя">
@@ -133,6 +144,15 @@ const BasicParameters = () => {
                     </button>
                 </div>
             </Box>
+
+            <Box theme="blue" name="Сохранить/Загрузить игру">
+                <div className={b('game-control')}>
+                    <button className={b('btn', {save: true})} onClick={handleSaveModal}>Сохранить</button>
+                    <button className={b('btn', {load: true})} onClick={handleLoadModal}>Загрузить</button>
+                </div>
+            </Box>
+            <SaveModal/>
+            <LoadModal/>
         </div>
     )
 };
