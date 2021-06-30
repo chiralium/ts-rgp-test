@@ -4,7 +4,7 @@
 
   &::after {
     position: absolute;
-    content: 'Loading...';
+    content: '';
     top: 0;
     left: 0;
     width: 100%;
@@ -15,7 +15,7 @@
     align-items: center;
     background-color: black;
     cursor: wait;
-    animation: dots 3s linear infinite;
+    animation: dots 0.5s linear infinite;
   }
 }
 
