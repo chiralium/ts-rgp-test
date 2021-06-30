@@ -1,7 +1,7 @@
 import {BASIC_PARAMETERS_ACTION_TYPES} from "modules/BasicParameters/types";
 import type {TBPAction, TBPState} from "modules/BasicParameters/types";
 
-const initialState: TBPState = {
+export const initialState: TBPState = {
     name: "Player",
     power: 0,
     charisma: 0,
@@ -49,7 +49,10 @@ const BPReducer = (state: TBPState = initialState, action: TBPAction<boolean | s
         }
 
         case BASIC_PARAMETERS_ACTION_TYPES.BP_SET_STATE: {
-            return action.payload as TBPState;
+            return {
+                ...action.payload as TBPState,
+                isLoaded: true,
+            }
         }
 
         case BASIC_PARAMETERS_ACTION_TYPES.BP_IS_LOADED: {
