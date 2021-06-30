@@ -7,9 +7,10 @@ const initialState: TBPState = {
     charisma: 0,
     dexterity: 0,
     iq: 0,
+    isLoaded: true,
 }
 
-const BPReducer = (state: TBPState = initialState, action: TBPAction<string | number>): TBPState => {
+const BPReducer = (state: TBPState = initialState, action: TBPAction<boolean | string | number | TBPState>): TBPState => {
     console.log(action);
     switch (action.type) {
         case BASIC_PARAMETERS_ACTION_TYPES.BP_SET_NAME: {
@@ -44,6 +45,17 @@ const BPReducer = (state: TBPState = initialState, action: TBPAction<string | nu
             return {
                 ...state,
                 dexterity: action.payload as number,
+            }
+        }
+
+        case BASIC_PARAMETERS_ACTION_TYPES.BP_SET_STATE: {
+            return action.payload as TBPState;
+        }
+
+        case BASIC_PARAMETERS_ACTION_TYPES.BP_IS_LOADED: {
+            return {
+                ...state,
+                isLoaded: action.payload as boolean,
             }
         }
 

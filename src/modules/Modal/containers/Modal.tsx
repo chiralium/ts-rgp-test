@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import ReactDOM from "react-dom";
 
 import './style.scss';
-let mountedPoint: Element | null = document.querySelector('body');
+let mountedPoint: HTMLBodyElement | null = document.querySelector('body');
 
 type TProps = {
     children: JSX.Element | Array<JSX.Element>,
@@ -15,6 +15,23 @@ const Modal = (props: TProps): JSX.Element => {
     if (!mountedPoint) {
         console.error('No <body> DOM');
     }
+
+    const disableScroll = (mountedPoint: HTMLBodyElement | null) => {
+        if (mountedPoint) {
+            mountedPoint.classList.add('modal-overlay');
+        }
+    }
+
+    const enableScroll = (mountedPoint: HTMLBodyElement | null) => {
+        if (mountedPoint) {
+            mountedPoint.classList.remove('modal-overlay');
+        }
+    }
+
+    useEffect(() => {
+        disableScroll(mountedPoint);
+        return () => enableScroll(mountedPoint);
+    }, []);
 
     return ReactDOM.createPortal(
         <>

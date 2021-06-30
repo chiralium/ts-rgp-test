@@ -10,13 +10,14 @@ type TProps = {
     name?: string,
     children: JSX.Element | Array<JSX.Element>,
     stickyTrick?: boolean,
+    isLoading?: boolean,
 }
 
 const Box = (props: TProps): JSX.Element => {
-    const {children, theme, name, stickyTrick} = props;
+    const {children, theme, name, stickyTrick, isLoading} = props;
     return (
-        <div className={b({theme: theme})}>
-            <h1 className={b('name')}>{name}</h1>
+        <div className={b({theme: theme}).is({loading: !!isLoading})}>
+            <h1 className={b('name', {hidden: !!isLoading})}>{name}</h1>
             { stickyTrick &&
                 <div className={b('sticky-trick')}/>
             }

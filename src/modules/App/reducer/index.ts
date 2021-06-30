@@ -1,4 +1,5 @@
-import {combineReducers, createStore} from "redux";
+import {combineReducers, createStore, applyMiddleware} from "redux";
+import thunk from "redux-thunk";
 
 import {BASIC_PARAMETERS_MODULE} from "modules/BasicParameters/types";
 import BPReducer from "modules/BasicParameters/reducer";
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
 
 const store = createStore(
     rootReducer,
+    applyMiddleware(thunk),
 );
 
 export {store, rootReducer};

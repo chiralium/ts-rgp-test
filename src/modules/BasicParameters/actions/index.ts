@@ -1,4 +1,5 @@
-import {BASIC_PARAMETERS_ACTION_TYPES, TBPAction} from 'modules/BasicParameters/types';
+import {BASIC_PARAMETERS_ACTION_TYPES, TBPAction, TBPState} from 'modules/BasicParameters/types';
+import {ThunkDispatch} from "redux-thunk";
 
 const setNameAction = (name: string): TBPAction<string> => {
     return {
@@ -35,6 +36,32 @@ const setIQAction = (iq: number): TBPAction<number> => {
     };
 };
 
+const setStateAction = (state: TBPState): TBPAction<TBPState> => {
+    return {
+        type: BASIC_PARAMETERS_ACTION_TYPES.BP_SET_STATE,
+        payload: state,
+    }
+}
+
+const setIsLoadedAction = (isLoaded: boolean): TBPAction<boolean> => {
+    return {
+        type: BASIC_PARAMETERS_ACTION_TYPES.BP_IS_LOADED,
+        payload: isLoaded,
+    }
+}
+
+const initBP = () => {
+    return async (dispatch: ThunkDispatch<any, any, any>) => {
+        dispatch(setIsLoadedAction(false));
+
+        setTimeout(
+            () => {
+                dispatch(setIsLoadedAction(true))
+            },
+            2000 - Math.random() * (1 - 4) + 1,
+        );
+    }
+}
 
 export {
     setNameAction,
@@ -42,4 +69,7 @@ export {
     setCharismaAction,
     setDexterityAction,
     setIQAction,
+    setStateAction,
+    setIsLoadedAction,
+    initBP,
 };

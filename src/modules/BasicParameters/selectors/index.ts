@@ -26,10 +26,15 @@ const selectDexterity = (state: ReturnType<typeof rootReducer>): number => {
     return selectModule(state).dexterity;
 }
 
+const selectIsLoaded = (state: ReturnType<typeof rootReducer>): boolean => {
+    return selectModule(state).isLoaded;
+}
+
 export {
     selectName,
     selectPower,
     selectCharisma,
     selectIQ,
     selectDexterity,
+    selectIsLoaded,
 }

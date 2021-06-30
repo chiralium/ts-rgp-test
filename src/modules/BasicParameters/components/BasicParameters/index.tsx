@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Box} from 'containers/Box';
 import {
+    initBP,
     setCharismaAction,
     setDexterityAction,
     setIQAction,
@@ -12,7 +13,14 @@ import {BASIC_PARAMETERS_LIST} from "modules/BasicParameters/types";
 import './style.scss';
 import block, {Block} from 'bem-cn';
 import {useDispatch, useSelector} from "react-redux";
-import {selectCharisma, selectDexterity, selectIQ, selectName, selectPower} from "modules/BasicParameters/selectors";
+import {
+    selectCharisma,
+    selectDexterity,
+    selectIQ,
+    selectIsLoaded,
+    selectName,
+    selectPower
+} from "modules/BasicParameters/selectors";
 import {selectLivingPower} from "modules/ExtraParameters/selectors";
 import {setLivingPowerAction} from "modules/ExtraParameters/actions";
 import {showModalAction} from "modules/Modal/actions";
@@ -36,6 +44,7 @@ const BasicParameters = () => {
     ];
 
     const playerLivingPower = useSelector(selectLivingPower);
+    const isLoaded = useSelector(selectIsLoaded);
 
     const dispatch = useDispatch();
 
@@ -88,6 +97,10 @@ const BasicParameters = () => {
     const handleLoadModal = () => {
         dispatch(showModalAction(MODAL_LOAD_GAME));
     }
+
+    useEffect(() => {
+        dispatch(initBP());
+    }, []);
 
     return (
         <div className={b()}>

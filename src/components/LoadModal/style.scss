@@ -1,10 +1,21 @@
 @import "src/assets/styles/mixins";
+@import "src/assets/styles/global";
 
 .load-modal {
   @include modalMX(240px);
+  display: block;
+  width: auto;
 
   &__file {
     border: none;
     padding: 5px;
+  }
+
+  &__error {
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    color: red;
+    margin-top: 10px;
   }
 }

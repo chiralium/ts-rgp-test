@@ -1,4 +1,6 @@
 import {EXTRA_PARAMETERS_ACTION_TYPES, TEXSetAction} from "modules/ExtraParameters/types";
+import {BASIC_PARAMETERS_ACTION_TYPES, TBPAction} from "modules/BasicParameters/types";
+import {ThunkDispatch} from "redux-thunk";
 
 const setLivingPowerAction = (livingPower: number): TEXSetAction => {
     return {
@@ -21,8 +23,30 @@ const setEnergyActions = (energy: number): TEXSetAction => {
     };
 };
 
+const setIsLoadedAction = (isLoaded: boolean): TBPAction<boolean> => {
+    return {
+        type: EXTRA_PARAMETERS_ACTION_TYPES.EP_IS_LOADED,
+        payload: isLoaded,
+    }
+}
+
+const initEP = () => {
+    return async (dispatch: ThunkDispatch<any, any, any>) => {
+        dispatch(setIsLoadedAction(false));
+
+        setTimeout(
+            () => {
+                dispatch(setIsLoadedAction(true))
+            },
+            2000 - Math.random() * (1 - 4) + 1,
+        );
+    }
+}
+
 export {
     setLivingPowerAction,
     setEnergyActions,
     setEvasionAction,
+    setIsLoadedAction,
+    initEP,
 };
